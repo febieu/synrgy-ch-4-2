@@ -7,21 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".ItemMusicActivity"
     app:layout_constraintTop_toTopOf="parent"
-    android:layout_marginHorizontal="10dp"
-    android:layout_marginVertical="16dp"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginVertical="10dp"
     android:elevation="4dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_one"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_music"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="100dp"
             android:src="@drawable/attaca_svt"
             android:scaleType="centerCrop"/>
         <androidx.appcompat.widget.AppCompatTextView
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:text="SEVENTEEN"
             android:layout_gravity="center"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:textColor="@color/white"/>
     </androidx.cardview.widget.CardView>

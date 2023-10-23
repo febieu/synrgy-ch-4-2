@@ -33,13 +33,29 @@ class MainActivity : AppCompatActivity() {
                  "AESPA",
              ),
              Kpop(
-                 R.drawable.winner,
-                 "Winner",
+                 R.drawable.exo,
+                 "EXO",
              ),
              Kpop(
-                 R.drawable.newjeans,
-                 "New Jeans",
+                 R.drawable.txt,
+                 "Tomorrow X Together",
              ),
+            Kpop(
+                R.drawable.winner,
+                "WINNER",
+            ),
+            Kpop(
+                R.drawable.gidle2,
+                "G-IDLE",
+            ),
+            Kpop(
+                R.drawable.pentagon,
+                "PENTAGON",
+            ),
+            Kpop(
+                R.drawable.newjeans,
+                "New Jeans",
+            ),
          )
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview_kpop)
