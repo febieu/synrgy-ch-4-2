@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
                 editor.putString("PASSWORD", password)
                 editor.apply()
 
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
             }
         }

@@ -2,9 +2,10 @@ package com.example.synrgychallenge4
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.Entity
 import androidx.versionedparcelable.VersionedParcelize
 
-@VersionedParcelize
+@Entity
 data class Kpop(
     val image: Int,
     val name: String?,
@@ -37,4 +38,6 @@ data class Kpop(
             return arrayOfNulls(size)
         }
     }
+
+
 }
