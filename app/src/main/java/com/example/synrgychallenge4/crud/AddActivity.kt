@@ -2,6 +2,7 @@ package com.example.synrgychallenge4.crud
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.synrgychallenge4.R
 import com.example.synrgychallenge4.databinding.ActivityAddBinding
@@ -10,12 +11,20 @@ import kotlinx.coroutines.launch
 class AddActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityAddBinding
+    private lateinit var ViewModel: ViewModel
+    private lateinit var addActivityViewModel: AddActivityViewModel
     private var user : User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        ViewModel = ViewModelProvider(this).get(ViewModel::class.java)
+        addActivityViewModel = ViewModelProvider(this).get(AddActivityViewModel::class.java)
+
+        var user = addActivityViewModel.getUser()
+        addActivityViewModel.setUser(user)
 
         user = intent.getSerializableExtra("Data") as User?
 
@@ -36,17 +45,14 @@ class AddActivity : AppCompatActivity() {
         val firstName = binding.edittextFirstName.text.toString()
         val lastName = binding.edittextLastName.text.toString()
 
-        lifecycleScope.launch {
-            if(user == null){
-                val user = User(firstName = firstName, lastName = lastName)
-                AppDatabase(this@AddActivity).getUserDao().addUser(user)
-                finish()
-            } else{
-                val u = User(firstName, lastName)
-                u.id = user?.id ?: 0
-                AppDatabase(this@AddActivity).getUserDao().updateUser(u)
-                finish()
-            }
+        if (user == null) {
+            ViewModel.addUser(firstName, lastName)
+        } else {
+            val u = User(firstName, lastName)
+            u.id = user?.id ?: 0
+            ViewModel.updateUser(u)
         }
+
+        finish()
     }
 }
